@@ -8,7 +8,7 @@ def thinkingTimer(time):
 
 dealCardSum = random.randrange(1, 14) #ランダムな一枚にしたい
 
-
+game = 'start'
 
 print('私のアップカードは', dealCardSum, 'です')
 
@@ -19,7 +19,7 @@ print('あなたの手札：', userCard1, userCard2, '\n')
 
 userCardSum = userCard1 + userCard2
 
-while True: 
+while game != 'finish': 
     userChoice = input('"stand"しますか？"hit"しますか？:')   
          
     if userChoice == "h" or userChoice == "hit":
@@ -28,6 +28,12 @@ while True:
          print('\nヒットしたカードは', hitCard, 'でした' )
          userCardSum += hitCard
          print('現在の手札の合計は', userCardSum, 'です\n')
+         
+         if userCardSum >= 22:
+             thinkingTimer(1)
+             print('バーストですね. あなたの負けです')
+             game = 'finish'
+         
           
     elif userChoice == "s" or userChoice == "stand":
          print('スタンドします\n')
@@ -36,6 +42,7 @@ while True:
          if userCardSum >= 22:
              thinkingTimer(1)
              print('バーストですね. あなたの負けです')
+             game = 'finish'
              break
          
          print('それで来ましたか. 私の番ですね\n')
@@ -59,6 +66,7 @@ while True:
              elif dealCardSum > 21:
                  print('バーストですね. あなたの勝ちです')
                  thinkingTimer(1)
+                 game = 'finish'
                  break
              else:
                  print('それではいきます')
@@ -66,14 +74,17 @@ while True:
                  print('私は　', dealCardSum, '　で、あなたは', userCardSum, '　です')
                  thinkingTimer(1)
                  if dealCardSum < userCardSum:
+                     if userCardSum == 21:
+                         print('blackJack!!')
                      print('あなたの勝ちです')
+                     game = 'finish'
                      break
                  elif dealCardSum >= userCardSum:
                      print('あなたの負けです')
-                     break	
+                     game = 'finish'
+                     break
 
-    else:
-        break
+    
 
     
     
