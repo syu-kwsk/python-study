@@ -1,6 +1,7 @@
 
+tramp = []
+for number in range(13):
+    tramp.append(number)
+    print(tramp[number])
 
-hoge = 10
 
-hoge = input('input:')
-print('input is', hoge)
