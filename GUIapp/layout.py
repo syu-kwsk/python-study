@@ -40,14 +40,14 @@ frame.master.columnconfigure(0, weight=1)
 frame.master.rowconfigure(0, weight=1)
 
 
-sayframe = ttk.Frame(rootframe, width=500, height=500, borderwidth=5, relief="raised")
+sayframe = ttk.Frame(rootframe, width=500, height=200, borderwidth=5, relief="raised")
 root.propagate(False)
 sayframe.grid_propagate(False)
 sayframe.grid(column=0, row=0)
 
-text = "それはセンスないわぁ"
-message = ttk.Button(sayframe, text=text)
-message.grid(column=0, row=0)
+text = "\nそれはセンスないわぁ\nどうすんの？"
+ttk.Label(sayframe, text=text, justify="center",font=(u'ＭＳ ゴシック', '20')).grid(column=0, row=0)
+ttk.Button(sayframe, text="☒", command=lambda:sayframe.lower()).grid(column=0, row=1)
 #sayframe.columnconfigure(0, weight=1)
 #sayframe.rowconfigure(0, weight=1)
 
