@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter.ttk as ttk
 import random
 from PIL import Image
 
