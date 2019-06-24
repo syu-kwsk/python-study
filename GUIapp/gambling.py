@@ -3,13 +3,6 @@ import tkinter.ttk as ttk
 import random
 from PIL import Image
 
-
-
-class Button(Frame):
-    def __init__(self, frame):
-        super().__init__(self, master=None)
-        self = Frame(frame)
-
 def setButton(from_frame, to_frame ,name):
     ttk.Button(from_frame, text='exit', command=lambda: root.quit()).grid(column=1, row=0, sticky="news")
     ttk.Button(from_frame, text=name, command=lambda: to_frame.tkraise()).grid(column=0, row=0, sticky="news")
