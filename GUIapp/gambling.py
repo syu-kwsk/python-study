@@ -7,7 +7,7 @@ from PIL import Image
 root = Tk()
 root.title("ギャンブルの天才に俺はなる")
 root.geometry("1000x800")
-#root.attributes("-zoomed", "1")
+root.attributes("-zoomed", "1")
 
 
 
@@ -44,11 +44,13 @@ top_frame =  ttk.Frame(body_frame)
 
 ## top ##
 
-ttk.Label(top_frame, text="this is top").grid(column=0, row=0, sticky="news")
+title_label = ttk.Label(top_frame, text="ギャンブルの天才", compound="center", font=(u'ＭＳ ゴシック', '50')).grid(column=0, row=0, sticky="news")
+start_btn = ttk.Button(top_frame, text="play start!", compound="center", padding=(5,10), command=lambda: intro_frame.tkraise()).grid(column=0, row=1)
 top_frame.grid(column=0, row=0, sticky="news")
 
 top_frame.columnconfigure(0, weight=1)
 top_frame.rowconfigure(0, weight=1)
+top_frame.rowconfigure(1, weight=1)
 
 top_frame.master.columnconfigure(0, weight=1)
 top_frame.master.rowconfigure(0, weight=1)
