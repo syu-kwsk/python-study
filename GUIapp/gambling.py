@@ -10,6 +10,8 @@ root.geometry("1000x800")
 #root.attributes("-zoomed", "1")
 
 
+
+
 ### head ###
 
 head_frame = ttk.Frame()
@@ -26,47 +28,63 @@ head_frame.master.rowconfigure(0, weight=2)
 
 
 
+
+
 ### body ###
 
 #genius_img = PhotoImage(file='genius.png').subsample(4)    
 
-def setButton(from_frame, to_frame ,name):
-    ttk.Button(from_frame, text=name, command=lambda: to_frame.tkraise()).grid(column=0, row=0, sticky="news")
-
-
 body_frame = ttk.Frame()
 
-top_frame =  ttk.Frame(body_frame)
-intro_frame = ttk.Frame(body_frame)
+
 game_frame = ttk.Frame(body_frame)
-
-setButton(top_frame, intro_frame, "this is top")
-setButton(intro_frame, game_frame, "this is intro")
-setButton(game_frame, top_frame, "this is game")
+intro_frame = ttk.Frame(body_frame)
+top_frame =  ttk.Frame(body_frame)
 
 
-game_frame.grid(column=0, row=0, sticky="news")
-intro_frame.grid(column=0, row=0, sticky="news")
+## top ##
+
+ttk.Label(top_frame, text="this is top").grid(column=0, row=0, sticky="news")
 top_frame.grid(column=0, row=0, sticky="news")
 
 top_frame.columnconfigure(0, weight=1)
-top_frame.columnconfigure(1, weight=1)
 top_frame.rowconfigure(0, weight=1)
-intro_frame.columnconfigure(0, weight=1)
-intro_frame.columnconfigure(1, weight=1)
-intro_frame.rowconfigure(0, weight=1)
-game_frame.columnconfigure(0, weight=1)
-game_frame.columnconfigure(1, weight=1)
-game_frame.rowconfigure(0, weight=1)
 
 top_frame.master.columnconfigure(0, weight=1)
 top_frame.master.rowconfigure(0, weight=1)
+## topend ##
+
+
+
+## intro ##
+
+ttk.Label(intro_frame, text="this is intro").grid(column=0, row=0, sticky="news")
+
+intro_frame.grid(column=0, row=0, sticky="news")
+
+intro_frame.columnconfigure(0, weight=1)
+intro_frame.rowconfigure(0, weight=1)
+
 intro_frame.master.columnconfigure(0, weight=1)
 intro_frame.master.rowconfigure(0, weight=1)
+
+## intro ##
+
+
+
+## game ##
+
+ttk.Label(game_frame, text="this is game").grid(column=0, row=0, sticky="news")
+
+game_frame.grid(column=0, row=0, sticky="news")
+
+game_frame.columnconfigure(0, weight=1)
+game_frame.rowconfigure(0, weight=1)
+
 game_frame.master.columnconfigure(0, weight=1)
 game_frame.master.rowconfigure(0, weight=1)
 
-
+## game end ##
 
 
 body_frame.grid(column=0, row=1, sticky="news")
@@ -74,6 +92,12 @@ body_frame.master.columnconfigure(0, weight=1)
 body_frame.master.rowconfigure(1, weight=500)
 
 ### bodyend ###
+
+
+
+
+
+
 
 ### foot ###
 
