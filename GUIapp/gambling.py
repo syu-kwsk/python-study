@@ -83,5 +83,19 @@ def gen_game_frame():
 
     
 gen_top_frame();
+
+"""
+"""
+root 
+ |---headFrame
+ | 
+ |---bodyFrame
+ |       |---topFrame
+ |       |      |---startBtn
+ |       |
+ |       |---introFrame
+ |       |---gameFrame
+ |
+ |
 """
 
