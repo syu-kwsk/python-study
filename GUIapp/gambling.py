@@ -56,14 +56,14 @@ top_frame.master.rowconfigure(0, weight=1)
 ## topend ##
 
 
-
 ## intro ##
 
 # image #
 
 image_frame = ttk.Frame(intro_frame)
 genius_img = PhotoImage(file='genius.png').subsample(2)    
-ttk.Label(image_frame, image=genius_img).grid(column=0, row=0)
+image = ttk.Label(image_frame, image=genius_img).grid(column=0, row=0)
+
 
 image_frame.grid_propagate(False)
 image_frame.grid(column=0, row=1, sticky="news")
@@ -73,28 +73,32 @@ image_frame.rowconfigure(0, weight=1)
 image_frame.master.columnconfigure(0, weight=1)
 image_frame.master.rowconfigure(0, weight=1)
 
-# imageend #
+# image end #
+
+# message #
+
+message_frame = ttk.Frame(intro_frame)
+ttk.Button(message_frame, text="this is text").grid(column=0, row=0, sticky="news")
+
+# skipBtn #
+skip_btn = ttk.Button
+ttk.Button(message_frame, text='skip', command=lambda: game_frame.tkraise()).grid(column=0, row=0)
 
 
-
-# text #
-
-text_frame = ttk.Frame(intro_frame)
-ttk.Button(text_frame, text="this is text").grid(column=0, row=0, sticky="news")
-
-
-text_frame.grid(column=0, row=0, sticky="news")
-text_frame.columnconfigure(0, weight=1)
-text_frame.rowconfigure(0, weight=1)
-
-text_frame.master.columnconfigure(0, weight=1)
-text_frame.master.rowconfigure(0, weight=1)
-
-# textend #
+# skipBtn end #
 
 
 
 
+
+message_frame.grid(column=0, row=0, sticky="news")
+message_frame.columnconfigure(0, weight=1)
+message_frame.rowconfigure(0, weight=1)
+
+message_frame.master.columnconfigure(0, weight=1)
+message_frame.master.rowconfigure(0, weight=1)
+
+# text end #
 
 
 intro_frame.grid(column=0, row=0, sticky="news")
@@ -107,8 +111,7 @@ intro_frame.rowconfigure(1, weight=3)
 intro_frame.master.columnconfigure(0, weight=1)
 intro_frame.master.rowconfigure(0, weight=1)
 
-## intro ##
-
+## intro end ##
 
 
 ## game ##
@@ -131,11 +134,6 @@ body_frame.master.columnconfigure(0, weight=1)
 body_frame.master.rowconfigure(1, weight=500)
 
 ### bodyend ###
-
-
-
-
-
 
 
 ### foot ###
