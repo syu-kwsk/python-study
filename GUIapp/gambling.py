@@ -79,10 +79,18 @@ image_frame.master.rowconfigure(0, weight=1)
 
 message_frame = ttk.Frame(intro_frame)
 
-skip_btn = ttk.Button(message_frame, text='skip', command=lambda: game_frame.tkraise()).grid(column=1, row=0, sticky="news")
 
 text_frame = ttk.Frame(message_frame, relief="sunken")
 text_label = ttk.Label(text_frame, text="intro_message").grid(column=0, row = 0)
+btn_frame = ttk.Frame(message_frame, relief="sunken")
+skip_btn = Button(btn_frame, text='skip',font=("",20), bg='#1056ff', command=lambda: game_frame.tkraise()).grid(column=0, row=0)
+next_btn = Button(btn_frame, text='next',font=("",20), bg='#1056ff').grid(column=0, row=1)
+
+
+btn_frame.grid(column=1, row=0, sticky="news")
+btn_frame.columnconfigure(0, weight=1)
+btn_frame.rowconfigure(0, weight=1)
+btn_frame.rowconfigure(1, weight=1)
 
 text_frame.grid(column=0, row=0, sticky="news")
 text_frame.columnconfigure(0, weight=1)
@@ -92,10 +100,10 @@ text_frame.rowconfigure(0, weight=1)
 
 
 message_frame.grid(column=0, row=0, sticky="news")
-message_frame.columnconfigure(0, weight=2)
-message_frame.rowconfigure(0, weight=1)
+message_frame.columnconfigure(0, weight=5)
 message_frame.columnconfigure(1, weight=1)
 message_frame.rowconfigure(0, weight=1)
+
 
 message_frame.master.columnconfigure(0, weight=1)
 message_frame.master.rowconfigure(0, weight=1)
