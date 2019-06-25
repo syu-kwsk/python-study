@@ -77,15 +77,34 @@ image_frame.master.rowconfigure(0, weight=1)
 
 # message #
 
+texts = ["are you crazy?"
+         ,"you are not genius"
+         ,"I will prove that!"
+        ]
+message = StringVar()
+message.set(texts[0])
+
+def change_message(target):
+    print(target.get())
+    now_message = 0
+    for i in [0, 1, 2]:
+        if texts[i] == target.get():
+            now_message = (i+1)%3
+            
+    message.set(texts[now_message])   
+       
+
 message_frame = ttk.Frame(intro_frame)
 
 
 text_frame = ttk.Frame(message_frame, relief="sunken")
-text_label = ttk.Label(text_frame, text="intro_message").grid(column=0, row = 0)
+text_label = ttk.Label(text_frame, textvariable = message, font=(u'ＭＳ ゴシック', '50')).grid(column=0, row = 0)
 btn_frame = ttk.Frame(message_frame, relief="sunken")
 skip_btn = Button(btn_frame, text='skip',font=("",20), bg='#1056ff', command=lambda: game_frame.tkraise()).grid(column=0, row=0)
-next_btn = Button(btn_frame, text='next',font=("",20), bg='#1056ff').grid(column=0, row=1)
+next_btn = Button(btn_frame, text='next',font=("",20), bg='#1056ff', command=lambda:change_message(message)).grid(column=0, row=1)
 
+btn_frame.grid_propagate(False)
+text_frame.grid_propagate(False)
 
 btn_frame.grid(column=1, row=0, sticky="news")
 btn_frame.columnconfigure(0, weight=1)
