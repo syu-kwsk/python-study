@@ -78,21 +78,19 @@ image_frame.master.rowconfigure(0, weight=1)
 # message #
 
 message_frame = ttk.Frame(intro_frame)
-ttk.Button(message_frame, text="this is text").grid(column=0, row=0, sticky="news")
 
-# skipBtn #
-skip_btn = ttk.Button
-ttk.Button(message_frame, text='skip', command=lambda: game_frame.tkraise()).grid(column=0, row=0)
+skip_btn = ttk.Button(message_frame, text='skip', command=lambda: game_frame.tkraise()).grid(column=1, row=0, sticky="news")
 
-
-# skipBtn end #
-
+text_frame = ttk.Frame(message_frame)
+text_label = ttk.Label(message_frame, text="intro_message",relief="sunken").grid(column=0, row = 0, sticky="news")
 
 
 
 
 message_frame.grid(column=0, row=0, sticky="news")
-message_frame.columnconfigure(0, weight=1)
+message_frame.columnconfigure(0, weight=2)
+message_frame.rowconfigure(0, weight=1)
+message_frame.columnconfigure(1, weight=1)
 message_frame.rowconfigure(0, weight=1)
 
 message_frame.master.columnconfigure(0, weight=1)
