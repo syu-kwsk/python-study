@@ -81,8 +81,12 @@ message_frame = ttk.Frame(intro_frame)
 
 skip_btn = ttk.Button(message_frame, text='skip', command=lambda: game_frame.tkraise()).grid(column=1, row=0, sticky="news")
 
-text_frame = ttk.Frame(message_frame)
-text_label = ttk.Label(message_frame, text="intro_message",relief="sunken").grid(column=0, row = 0, sticky="news")
+text_frame = ttk.Frame(message_frame, relief="sunken")
+text_label = ttk.Label(text_frame, text="intro_message").grid(column=0, row = 0)
+
+text_frame.grid(column=0, row=0, sticky="news")
+text_frame.columnconfigure(0, weight=1)
+text_frame.rowconfigure(0, weight=1)
 
 
 
