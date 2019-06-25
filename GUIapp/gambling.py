@@ -5,7 +5,7 @@ from PIL import Image
 
 
 root = Tk()
-root.title("ギャンブルの天才に俺はなる")
+root.title("GUIAPP tkinter")
 root.geometry("1000x800")
 root.attributes("-zoomed", "1")
 
@@ -32,7 +32,6 @@ head_frame.master.rowconfigure(0, weight=2)
 
 ### body ###
 
-#genius_img = PhotoImage(file='genius.png').subsample(4)    
 
 body_frame = ttk.Frame()
 
@@ -44,8 +43,8 @@ top_frame =  ttk.Frame(body_frame)
 
 ## top ##
 
-title_label = ttk.Label(top_frame, text="ギャンブルの天才", compound="center", font=(u'ＭＳ ゴシック', '50')).grid(column=0, row=0, sticky="news")
-start_btn = ttk.Button(top_frame, text="play start!", compound="center", padding=(5,10), command=lambda: intro_frame.tkraise()).grid(column=0, row=1)
+title_label = ttk.Label(top_frame, text="GUIAPP", font=(u'ＭＳ ゴシック', '100')).grid(column=0, row=0)
+start_btn = Button(top_frame, text="play start!",font=("",20), bg='#1056ff', command=lambda: intro_frame.tkraise()).grid(column=0, row=1)
 top_frame.grid(column=0, row=0, sticky="news")
 
 top_frame.columnconfigure(0, weight=1)
@@ -60,12 +59,50 @@ top_frame.master.rowconfigure(0, weight=1)
 
 ## intro ##
 
-ttk.Label(intro_frame, text="this is intro").grid(column=0, row=0, sticky="news")
+# image #
+
+image_frame = ttk.Frame(intro_frame)
+genius_img = PhotoImage(file='genius.png').subsample(2)    
+ttk.Label(image_frame, image=genius_img).grid(column=0, row=0)
+
+image_frame.grid_propagate(False)
+image_frame.grid(column=0, row=1, sticky="news")
+image_frame.columnconfigure(0, weight=1)
+image_frame.rowconfigure(0, weight=1)
+
+image_frame.master.columnconfigure(0, weight=1)
+image_frame.master.rowconfigure(0, weight=1)
+
+# imageend #
+
+
+
+# text #
+
+text_frame = ttk.Frame(intro_frame)
+ttk.Button(text_frame, text="this is text").grid(column=0, row=0, sticky="news")
+
+
+text_frame.grid(column=0, row=0, sticky="news")
+text_frame.columnconfigure(0, weight=1)
+text_frame.rowconfigure(0, weight=1)
+
+text_frame.master.columnconfigure(0, weight=1)
+text_frame.master.rowconfigure(0, weight=1)
+
+# textend #
+
+
+
+
+
 
 intro_frame.grid(column=0, row=0, sticky="news")
 
 intro_frame.columnconfigure(0, weight=1)
-intro_frame.rowconfigure(0, weight=1)
+intro_frame.rowconfigure(0, weight=2)
+intro_frame.rowconfigure(1, weight=3)
+
 
 intro_frame.master.columnconfigure(0, weight=1)
 intro_frame.master.rowconfigure(0, weight=1)
@@ -134,10 +171,26 @@ root
  |       |      |---startBtn
  |       |
  |       |---introFrame
+ |       |      |---imageFrame
+ |       |      |---messageFrame
+ |       |              |---nextBtn
+ |       |              |---skipBtn
+ |       |              |---textLabel
+ |       |      
  |       |---gameFrame
+ |              |---dealerFrame
+ |              |---userFrame
+ |              |---chooseFrame
+ |              |---geniusFrame
+ |              |---
+ |              |---
+ |              |---
  |
  |
- |---footFrame---byBtn
+ |---footFrame
+         |---topBtn
+         |---introBtn
+         |---gameBtn
  
 """
 
