@@ -9,12 +9,12 @@ root.title("GUIAPP tkinter")
 root.geometry("1000x800")
 root.attributes("-zoomed", "1")
 
-tramp_img = [PhotoImage(file='s1.png').subsample(4)
-             ,PhotoImage(file='s2.png').subsample(4)
-             ,PhotoImage(file='s3.png').subsample(4)
-             ,PhotoImage(file='s4.png').subsample(4)
-             ,PhotoImage(file='s5.png').subsample(4)
-             ,PhotoImage(file='s6.png').subsample(4)             
+tramp_img = [PhotoImage(file='asset/s1.png').subsample(4)
+             ,PhotoImage(file='asset/s2.png').subsample(4)
+             ,PhotoImage(file='asset/s3.png').subsample(4)
+             ,PhotoImage(file='asset/s4.png').subsample(4)
+             ,PhotoImage(file='asset/s5.png').subsample(4)
+             ,PhotoImage(file='asset/s6.png').subsample(4)             
 ]
 
 ### head ###
@@ -64,7 +64,7 @@ top_frame.master.rowconfigure(0, weight=1)
 # image #
 
 image_frame = ttk.Frame(intro_frame)
-genius_img = PhotoImage(file='genius.png').subsample(2)    
+genius_img = PhotoImage(file='asset/genius.png').subsample(2)    
 image = ttk.Label(image_frame, image=genius_img).grid(column=0, row=0)
 
 
@@ -201,6 +201,7 @@ dealer_frame.rowconfigure(0, weight=1)
 # user
 
 def gen_tramp(i):
+    
     ttk.Label(user_frame, image=tramp_img[i]).grid(column=i, row=0)
     
 user_frame= ttk.Frame(normalgame_frame, relief="sunken")
@@ -215,13 +216,13 @@ user_frame.rowconfigure(0, weight=1)
 #choose
 choose_frame = ttk.Frame(normalgame_frame, relief="sunken")
 
-
-ttk.Label(choose_frame, text='choose').grid(column=0, row=0)
-
+hit_btn = Button(choose_frame, text=" hit ",font=("",100), bg='#ff0000', fg="#ffffff", width=5).grid(column=0, row=0)
+stand_btn = Button(choose_frame, text="stand",font=("",100), bg='#0000ff', fg="#ffffff", width=5).grid(column=1, row=0)
 
 choose_frame.grid_propagate(False)
 choose_frame.grid(column=0, row=1, sticky="news")
 choose_frame.columnconfigure(0, weight=1)
+choose_frame.columnconfigure(1, weight=1)
 choose_frame.rowconfigure(0, weight=1)
 
 
