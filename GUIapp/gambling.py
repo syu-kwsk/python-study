@@ -153,7 +153,83 @@ intro_frame.master.rowconfigure(0, weight=1)
 ## game ##
 
 # normal  #
+
 normalgame_frame = ttk.Frame(game_frame)
+
+# dealer
+dealer_frame= ttk.Frame(normalgame_frame, relief="sunken")
+
+ttk.Label(dealer_frame, text='dealer').grid(column=0, row=0)
+
+dealer_frame.grid_propagate(False)
+dealer_frame.grid(column=0, row=0, sticky="news")
+dealer_frame.columnconfigure(0, weight=1)
+dealer_frame.rowconfigure(0, weight=1)
+
+# user
+user_frame= ttk.Frame(normalgame_frame, relief="sunken")
+ttk.Label(user_frame, text='user').grid(column=0, row=0)
+
+user_frame.grid_propagate(False)
+user_frame.grid(column=0, row=2, sticky="news")
+user_frame.columnconfigure(0, weight=1)
+user_frame.rowconfigure(0, weight=1)
+
+
+#choose
+choose_frame = ttk.Frame(normalgame_frame, relief="sunken")
+
+ttk.Label(choose_frame, text='choose').grid(column=0, row=0)
+
+choose_frame.grid_propagate(False)
+choose_frame.grid(column=0, row=1, sticky="news")
+choose_frame.columnconfigure(0, weight=1)
+choose_frame.rowconfigure(0, weight=1)
+
+
+#money
+money_frame = ttk.Frame(normalgame_frame, relief="sunken")
+
+ttk.Label(money_frame, text='money').grid(column=0, row=0)
+
+money_frame.grid_propagate(False)
+money_frame.grid(column=1, row=0, sticky="news")
+money_frame.columnconfigure(0, weight=1)
+money_frame.rowconfigure(0, weight=1)
+
+# stock
+stock_frame= ttk.Frame(normalgame_frame, relief="sunken")
+
+ttk.Label(stock_frame, text='stock').grid(column=0, row=0)
+
+stock_frame.grid_propagate(False)
+stock_frame.grid(column=1, row=1, sticky="news")
+stock_frame.columnconfigure(0, weight=1)
+stock_frame.rowconfigure(0, weight=1)
+
+# genius
+genius_frame= ttk.Frame(normalgame_frame, relief="sunken")
+
+ttk.Button(genius_frame, text='genius').grid(column=0, row=0)
+
+genius_frame.grid_propagate(False)
+genius_frame.grid(column=1, row=2, sticky="news")
+genius_frame.columnconfigure(0, weight=1)
+genius_frame.rowconfigure(0, weight=1)
+
+
+normalgame_frame.grid(column=0, row=0, sticky="news")
+normalgame_frame.columnconfigure(0, weight=2)
+normalgame_frame.columnconfigure(1, weight=1)
+normalgame_frame.rowconfigure(0, weight=1)
+normalgame_frame.rowconfigure(1, weight=1)
+normalgame_frame.rowconfigure(2, weight=1)
+
+
+normalgame_frame.master.columnconfigure(0, weight=1)
+normalgame_frame.master.rowconfigure(0, weight=1)
+
+
 # normalgame end #
 
 
