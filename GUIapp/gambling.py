@@ -152,12 +152,23 @@ intro_frame.master.rowconfigure(0, weight=1)
 
 ## game ##
 
-ttk.Label(game_frame, text="this is game").grid(column=0, row=0, sticky="news")
+# normal  #
+normalgame_frame = ttk.Frame(game_frame)
+# normalgame end #
+
+
+
+# comment #
+commentgame_frame = ttk.Frame(game_frame)
+# comment #
 
 game_frame.grid(column=0, row=0, sticky="news")
 
 game_frame.columnconfigure(0, weight=1)
 game_frame.rowconfigure(0, weight=1)
+
+
+
 
 game_frame.master.columnconfigure(0, weight=1)
 game_frame.master.rowconfigure(0, weight=1)
