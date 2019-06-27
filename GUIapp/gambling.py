@@ -156,37 +156,10 @@ intro_frame.master.rowconfigure(0, weight=1)
 ## game ##
 
 
-# comment #
-commentgame_frame = ttk.Frame(game_frame, width=1000, height=600, borderwidth=5, relief="raised")
-
-ttk.Button(commentgame_frame, text="close", command=lambda: normalgame_frame.tkraise()).grid(column=0, row=1)
-
-comment_frame = ttk.Frame(commentgame_frame, width=800, height=400)
-ttk.Label(comment_frame, text = "それはセンスないわ〜\n俺の言うとおりで勝てる", font=(u'ＭＳ ゴシック', '30')).grid(column=0, row=0)
-
-comment_frame.grid_propagate(False)
-comment_frame.grid(column=0, row=0)
-comment_frame.columnconfigure(0, weight=1)
-comment_frame.rowconfigure(0, weight=1)
-
-
-
-commentgame_frame.grid_propagate(False)
-commentgame_frame.grid(column=0, row=0)
-commentgame_frame.columnconfigure(0, weight=2)
-commentgame_frame.rowconfigure(0, weight=5)
-commentgame_frame.rowconfigure(1, weight=1)
-
-
-commentgame_frame.master.columnconfigure(0, weight=1)
-commentgame_frame.master.rowconfigure(0, weight=1)
-
-# comment #
-
-
 # normal  #
 
 normalgame_frame = ttk.Frame(game_frame)
+
 
 # dealer
 dealer_frame= ttk.Frame(normalgame_frame, relief="sunken")
@@ -271,7 +244,39 @@ normalgame_frame.master.rowconfigure(0, weight=1)
 
 # normalgame end #
 
+# comment #
 
+comment = StringVar()
+comment.set("BlackJackや\nhitかstandを選べ")
+def comment_change(come):
+    commentgame_frame.tkraise()
+    comment.set(come)
+
+commentgame_frame = ttk.Frame(game_frame, width=1000, height=600, borderwidth=5, relief="raised")
+
+ttk.Button(commentgame_frame, text="close", command=lambda: normalgame_frame.tkraise()).grid(column=0, row=1)
+
+comment_frame = ttk.Frame(commentgame_frame, width=800, height=400)
+ttk.Label(comment_frame, textvariable = comment, font=(u'ＭＳ ゴシック', '30')).grid(column=0, row=0)
+
+comment_frame.grid_propagate(False)
+comment_frame.grid(column=0, row=0)
+comment_frame.columnconfigure(0, weight=1)
+comment_frame.rowconfigure(0, weight=1)
+
+
+
+commentgame_frame.grid_propagate(False)
+commentgame_frame.grid(column=0, row=0)
+commentgame_frame.columnconfigure(0, weight=2)
+commentgame_frame.rowconfigure(0, weight=5)
+commentgame_frame.rowconfigure(1, weight=1)
+
+
+commentgame_frame.master.columnconfigure(0, weight=1)
+commentgame_frame.master.rowconfigure(0, weight=1)
+
+# comment #
 
 
 game_frame.grid(column=0, row=0, sticky="news")
