@@ -159,18 +159,22 @@ intro_frame.master.rowconfigure(0, weight=1)
 # normal  #
 
 normalgame_frame = ttk.Frame(game_frame)
-def put_tramp(frame, row_pos=0, column_pos=0):
+
+user_hit_num = 0;
+def put_tramp(frame, owner):
+    global hit_num
     num = random.randrange(0, 6)
-    ttk.Label(frame, image=tramp_img[num]).grid(column=column_pos,row=row_pos)
+    ttk.Label(frame, image=tramp_img[num]).grid(column=user_hit_num, row=0)
+    frame.columnconfigure(hit_num, weight=1)    
+    user_hit_num += 1
 
 
 # dealer
 dealer_frame= ttk.Frame(normalgame_frame, relief="sunken")
 
 ttk.Label(dealer_frame, text='dealer').grid(column=0, row=0)
-for i in range(10):
-    put_tramp(dealer_frame,column_pos=i)
-    
+
+put_tramp(dealer_frame)
 dealer_frame.grid_propagate(False)
 dealer_frame.grid(column=0, row=0, sticky="news")
 dealer_frame.columnconfigure(0, weight=1)
@@ -184,8 +188,8 @@ def gen_tramp(i):
     
 user_frame= ttk.Frame(normalgame_frame, relief="sunken")
 
-for i in range(10):
-    put_tramp(user_frame,column_pos=i)
+put_tramp(user_frame)
+put_tramp(user_frame)
 user_frame.grid_propagate(False)
 user_frame.grid(column=0, row=2, sticky="news")
 user_frame.columnconfigure(0, weight=1)
@@ -195,7 +199,7 @@ user_frame.rowconfigure(0, weight=1)
 #choose
 choose_frame = ttk.Frame(normalgame_frame, relief="sunken")
 
-hit_btn = Button(choose_frame, text=" hit ",font=("",100), bg='#ff0000', fg="#ffffff", width=5).grid(column=0, row=0)
+hit_btn = Button(choose_frame, text=" hit ",font=("",100), bg='#ff0000', fg="#ffffff", width=5, command=lambda: put_tramp(user_frame)).grid(column=0, row=0)
 stand_btn = Button(choose_frame, text="stand",font=("",100), bg='#0000ff', fg="#ffffff", width=5).grid(column=1, row=0)
 
 choose_frame.grid_propagate(False)
