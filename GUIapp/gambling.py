@@ -84,6 +84,7 @@ texts = ["なにしにきたんや？"
          ,"じゃあ、ブラックジャックな"
          ,"どーせ、負けるやろし"
          ,"しゃーないから、\n俺が時々アドバイスしたるわ"
+         ,"ほないくで"
         ]
 message = StringVar()
 # message.set(texts[0])
@@ -206,9 +207,13 @@ root
  |       |---introFrame
  |       |      |---imageFrame
  |       |      |---messageFrame
- |       |              |---nextBtn
- |       |              |---skipBtn
- |       |              |---textLabel
+ |       |              |---buttonFrame
+ |       |              |       |---skipBtn
+ |       |              |       |---nextBtn
+ |       |              |
+ |       |              |---texrFrame
+ |       |                      |---textLabel
+ |       |
  |       |      
  |       |---gameFrame
  |              |---dealerFrame
