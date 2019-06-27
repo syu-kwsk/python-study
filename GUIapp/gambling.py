@@ -9,6 +9,14 @@ root.title("GUIAPP tkinter")
 root.geometry("1000x800")
 root.attributes("-zoomed", "1")
 
+tramp_img = [PhotoImage(file='s1.png').subsample(4)
+             ,PhotoImage(file='s2.png').subsample(4)
+             ,PhotoImage(file='s3.png').subsample(4)
+             ,PhotoImage(file='s4.png').subsample(4)
+             ,PhotoImage(file='s5.png').subsample(4)
+             ,PhotoImage(file='s6.png').subsample(4)             
+]
+
 ### head ###
 
 head_frame = ttk.Frame()
@@ -191,8 +199,12 @@ dealer_frame.columnconfigure(0, weight=1)
 dealer_frame.rowconfigure(0, weight=1)
 
 # user
+
+def gen_tramp(i):
+    ttk.Label(user_frame, image=tramp_img[i]).grid(column=i, row=0)
+    
 user_frame= ttk.Frame(normalgame_frame, relief="sunken")
-ttk.Label(user_frame, text='user').grid(column=0, row=0)
+
 
 user_frame.grid_propagate(False)
 user_frame.grid(column=0, row=2, sticky="news")
@@ -203,7 +215,9 @@ user_frame.rowconfigure(0, weight=1)
 #choose
 choose_frame = ttk.Frame(normalgame_frame, relief="sunken")
 
+
 ttk.Label(choose_frame, text='choose').grid(column=0, row=0)
+
 
 choose_frame.grid_propagate(False)
 choose_frame.grid(column=0, row=1, sticky="news")
