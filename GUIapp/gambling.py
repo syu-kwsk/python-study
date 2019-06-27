@@ -152,6 +152,24 @@ intro_frame.master.rowconfigure(0, weight=1)
 
 ## game ##
 
+
+# comment #
+commentgame_frame = ttk.Frame(game_frame, width=1000, height=600, borderwidth=5, relief="raised")
+
+ttk.Button(commentgame_frame, text="close", command=lambda: normalgame_frame.tkraise()).grid(column=0, row=0)
+
+commentgame_frame.grid_propagate(False)
+commentgame_frame.grid(column=0, row=0)
+commentgame_frame.columnconfigure(0, weight=2)
+commentgame_frame.rowconfigure(0, weight=1)
+
+
+commentgame_frame.master.columnconfigure(0, weight=1)
+commentgame_frame.master.rowconfigure(0, weight=1)
+
+# comment #
+
+
 # normal  #
 
 normalgame_frame = ttk.Frame(game_frame)
@@ -210,7 +228,7 @@ stock_frame.rowconfigure(0, weight=1)
 # genius
 genius_frame= ttk.Frame(normalgame_frame, relief="sunken")
 
-ttk.Button(genius_frame, text='genius').grid(column=0, row=0)
+ttk.Button(genius_frame, text='genius', command=lambda: commentgame_frame.tkraise()).grid(column=0, row=0)
 
 genius_frame.grid_propagate(False)
 genius_frame.grid(column=1, row=2, sticky="news")
@@ -234,9 +252,6 @@ normalgame_frame.master.rowconfigure(0, weight=1)
 
 
 
-# comment #
-commentgame_frame = ttk.Frame(game_frame)
-# comment #
 
 game_frame.grid(column=0, row=0, sticky="news")
 
