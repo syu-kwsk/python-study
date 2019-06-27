@@ -159,13 +159,18 @@ intro_frame.master.rowconfigure(0, weight=1)
 # normal  #
 
 normalgame_frame = ttk.Frame(game_frame)
+def put_tramp(frame, row_pos=0, column_pos=0):
+    num = random.randrange(0, 6)
+    ttk.Label(frame, image=tramp_img[num]).grid(column=column_pos,row=row_pos)
 
 
 # dealer
 dealer_frame= ttk.Frame(normalgame_frame, relief="sunken")
 
 ttk.Label(dealer_frame, text='dealer').grid(column=0, row=0)
-
+for i in range(10):
+    put_tramp(dealer_frame,column_pos=i)
+    
 dealer_frame.grid_propagate(False)
 dealer_frame.grid(column=0, row=0, sticky="news")
 dealer_frame.columnconfigure(0, weight=1)
@@ -179,7 +184,8 @@ def gen_tramp(i):
     
 user_frame= ttk.Frame(normalgame_frame, relief="sunken")
 
-
+for i in range(10):
+    put_tramp(user_frame,column_pos=i)
 user_frame.grid_propagate(False)
 user_frame.grid(column=0, row=2, sticky="news")
 user_frame.columnconfigure(0, weight=1)
