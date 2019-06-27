@@ -4,6 +4,7 @@ import random
 from PIL import Image
 
 
+
 root = Tk()
 root.title("GUIAPP tkinter")
 root.geometry("1000x800")
@@ -14,8 +15,67 @@ tramp_img = [PhotoImage(file='asset/s1.png').subsample(4)
              ,PhotoImage(file='asset/s3.png').subsample(4)
              ,PhotoImage(file='asset/s4.png').subsample(4)
              ,PhotoImage(file='asset/s5.png').subsample(4)
-             ,PhotoImage(file='asset/s6.png').subsample(4)             
+             ,PhotoImage(file='asset/s6.png').subsample(4)
+             ,PhotoImage(file='asset/s7.png').subsample(4)
+             ,PhotoImage(file='asset/s8.png').subsample(4)
+             ,PhotoImage(file='asset/s9.png').subsample(4)
+             ,PhotoImage(file='asset/s10.png').subsample(4)
+             ,PhotoImage(file='asset/s11.png').subsample(4)
+             ,PhotoImage(file='asset/s12.png').subsample(4)
+             ,PhotoImage(file='asset/s13.png').subsample(4)
+             ,PhotoImage(file='asset/h1.png').subsample(4)
+             ,PhotoImage(file='asset/h2.png').subsample(4)
+             ,PhotoImage(file='asset/h3.png').subsample(4)
+             ,PhotoImage(file='asset/h4.png').subsample(4)
+             ,PhotoImage(file='asset/h5.png').subsample(4)
+             ,PhotoImage(file='asset/h6.png').subsample(4)
+             ,PhotoImage(file='asset/h7.png').subsample(4)
+             ,PhotoImage(file='asset/h8.png').subsample(4)
+             ,PhotoImage(file='asset/h9.png').subsample(4)
+             ,PhotoImage(file='asset/h10.png').subsample(4)
+             ,PhotoImage(file='asset/h11.png').subsample(4)
+             ,PhotoImage(file='asset/h12.png').subsample(4)
+             ,PhotoImage(file='asset/h13.png').subsample(4)
+             ,PhotoImage(file='asset/c1.png').subsample(4)
+             ,PhotoImage(file='asset/c2.png').subsample(4)
+             ,PhotoImage(file='asset/c3.png').subsample(4)
+             ,PhotoImage(file='asset/c4.png').subsample(4)
+             ,PhotoImage(file='asset/c5.png').subsample(4)
+             ,PhotoImage(file='asset/c6.png').subsample(4)
+             ,PhotoImage(file='asset/c7.png').subsample(4)
+             ,PhotoImage(file='asset/c8.png').subsample(4)
+             ,PhotoImage(file='asset/c9.png').subsample(4)
+             ,PhotoImage(file='asset/c10.png').subsample(4)
+             ,PhotoImage(file='asset/c11.png').subsample(4)
+             ,PhotoImage(file='asset/c12.png').subsample(4)
+             ,PhotoImage(file='asset/c13.png').subsample(4)
+             ,PhotoImage(file='asset/d1.png').subsample(4)
+             ,PhotoImage(file='asset/d2.png').subsample(4)
+             ,PhotoImage(file='asset/d3.png').subsample(4)
+             ,PhotoImage(file='asset/d4.png').subsample(4)
+             ,PhotoImage(file='asset/d5.png').subsample(4)
+             ,PhotoImage(file='asset/d6.png').subsample(4)
+             ,PhotoImage(file='asset/d7.png').subsample(4)
+             ,PhotoImage(file='asset/d8.png').subsample(4)
+             ,PhotoImage(file='asset/d9.png').subsample(4)
+             ,PhotoImage(file='asset/d10.png').subsample(4)
+             ,PhotoImage(file='asset/d11.png').subsample(4)
+             ,PhotoImage(file='asset/d12.png').subsample(4)
+             ,PhotoImage(file='asset/d13.png').subsample(4)
 ]
+used = []
+
+def choose_tramp():
+    global tramp_img, used
+    while True:
+        rand_num = random.randrange(0, 52)
+        if rand_num in used:
+            print("kaburi is ", tramp_img[rand_num])
+            
+        else:
+            print("choose ", tramp_img[rand_num])
+            used.append(rand_num)
+            return tramp_img[rand_num]
 
 ### head ###
 
@@ -66,7 +126,6 @@ top_frame.master.rowconfigure(0, weight=1)
 image_frame = ttk.Frame(intro_frame)
 genius_img = PhotoImage(file='asset/genius.png').subsample(2)    
 image = ttk.Label(image_frame, image=genius_img).grid(column=0, row=0)
-
 
 image_frame.grid_propagate(False)
 image_frame.grid(column=0, row=1, sticky="news")
@@ -161,12 +220,21 @@ intro_frame.master.rowconfigure(0, weight=1)
 normalgame_frame = ttk.Frame(game_frame)
 
 user_hit_num = 0;
-def put_tramp(frame, owner):
-    global hit_num
-    num = random.randrange(0, 6)
-    ttk.Label(frame, image=tramp_img[num]).grid(column=user_hit_num, row=0)
-    frame.columnconfigure(hit_num, weight=1)    
-    user_hit_num += 1
+dealer_hit_num = 0;
+
+def put_tramp(frame, dealer=0):
+    global user_hit_num, dealer_hit_num
+    tramp_img = choose_tramp()
+    if dealer:
+        ttk.Label(frame, image=tramp_img).grid(column=dealer_hit_num, row=0)
+        frame.columnconfigure(dealer_hit_num, weight=1)
+        
+        dealer_hit_num += 1
+    else:
+        ttk.Label(frame, image=tramp_img).grid(column=user_hit_num, row=0)
+        frame.columnconfigure(user_hit_num, weight=1)
+        
+        user_hit_num += 1
 
 
 # dealer
@@ -174,7 +242,7 @@ dealer_frame= ttk.Frame(normalgame_frame, relief="sunken")
 
 ttk.Label(dealer_frame, text='dealer').grid(column=0, row=0)
 
-put_tramp(dealer_frame)
+put_tramp(dealer_frame, dealer=1)
 dealer_frame.grid_propagate(False)
 dealer_frame.grid(column=0, row=0, sticky="news")
 dealer_frame.columnconfigure(0, weight=1)
