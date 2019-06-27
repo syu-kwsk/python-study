@@ -77,21 +77,27 @@ image_frame.master.rowconfigure(0, weight=1)
 
 # message #
 
-texts = ["are you crazy?"
-         ,"you are not genius"
-         ,"I will prove that!"
+texts = ["なにしにきたんや？"
+         ,"まさか、ギャンブルの\n天才と思とるんか？"
+         ,"やめとけ。お前は天才ちゃう"
+         ,"試してみるか？"
+         ,"じゃあ、ブラックジャックな"
+         ,"どーせ、負けるやろし"
+         ,"しゃーないから、\n俺が時々アドバイスしたるわ"
         ]
 message = StringVar()
-message.set(texts[0])
+# message.set(texts[0])
 
 def change_message(target):
-    print(target.get())
-    now_message = 0
-    for i in [0, 1, 2]:
+    next_message = 0
+    for i in range( len(texts) ):
         if texts[i] == target.get():
-            now_message = (i+1)%3
+            next_message = i+1
             
-    message.set(texts[now_message])   
+    if next_message >= len(texts):
+        game_frame.tkraise()
+    else:
+        message.set(texts[next_message])   
        
 
 message_frame = ttk.Frame(intro_frame)
@@ -99,7 +105,7 @@ message_frame = ttk.Frame(intro_frame)
 
 text_frame = ttk.Frame(message_frame, relief="sunken")
 text_label = ttk.Label(text_frame, textvariable = message, font=(u'ＭＳ ゴシック', '50')).grid(column=0, row = 0)
-btn_frame = ttk.Frame(message_frame, relief="sunken")
+btn_frame = ttk.Frame(message_frame, relief="raised")
 skip_btn = Button(btn_frame, text='skip',font=("",20), bg='#1056ff', command=lambda: game_frame.tkraise()).grid(column=0, row=0)
 next_btn = Button(btn_frame, text='next',font=("",20), bg='#1056ff', command=lambda:change_message(message)).grid(column=0, row=1)
 
