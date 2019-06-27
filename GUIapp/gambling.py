@@ -217,8 +217,8 @@ money_frame.rowconfigure(0, weight=1)
 
 # stock
 stock_frame= ttk.Frame(normalgame_frame, relief="sunken")
-
-ttk.Label(stock_frame, text='stock').grid(column=0, row=0)
+stock_img = PhotoImage(file='asset/stock.png').subsample(4)
+ttk.Label(stock_frame, image=stock_img).grid(column=0, row=0)
 
 stock_frame.grid_propagate(False)
 stock_frame.grid(column=1, row=1, sticky="news")
@@ -228,7 +228,9 @@ stock_frame.rowconfigure(0, weight=1)
 # genius
 genius_frame= ttk.Frame(normalgame_frame, relief="sunken")
 
-ttk.Button(genius_frame, text='genius', command=lambda: commentgame_frame.tkraise()).grid(column=0, row=0)
+help_btn = Button(genius_frame, text='HELP',font=("",30), bg='#006666', fg="#ffffff", command=lambda: commentgame_frame.tkraise()).grid(column=0, row=0)
+genius_img_game = PhotoImage(file='asset/genius.png').subsample(4)
+ttk.Label(genius_frame, image=genius_img_game).grid(column=0, row=1)
 
 genius_frame.grid_propagate(False)
 genius_frame.grid(column=1, row=2, sticky="news")
@@ -237,7 +239,7 @@ genius_frame.rowconfigure(0, weight=1)
 
 
 normalgame_frame.grid(column=0, row=0, sticky="news")
-normalgame_frame.columnconfigure(0, weight=2)
+normalgame_frame.columnconfigure(0, weight=3)
 normalgame_frame.columnconfigure(1, weight=1)
 normalgame_frame.rowconfigure(0, weight=1)
 normalgame_frame.rowconfigure(1, weight=1)
